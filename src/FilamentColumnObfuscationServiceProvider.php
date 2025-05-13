@@ -2,9 +2,9 @@
 
 namespace rndparanoia\FilamentColumnObfuscation;
 
+use rndparanoia\FilamentColumnObfuscation\Commands\FilamentColumnObfuscationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use rndparanoia\FilamentColumnObfuscation\Commands\FilamentColumnObfuscationCommand;
 
 class FilamentColumnObfuscationServiceProvider extends PackageServiceProvider
 {
