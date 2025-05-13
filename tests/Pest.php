@@ -1,5 +1,5 @@
 <?php
 
-use rndparanoia\FilamentColumnObfuscation\Tests\TestCase;
+use RandomParanoia\FilamentColumnObfuscation\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

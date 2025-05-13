@@ -1,6 +1,6 @@
 <?php
 
-// config for rndparanoia/FilamentColumnObfuscation
+// config for RandomParanoia/FilamentColumnObfuscation
 return [
 
 ];

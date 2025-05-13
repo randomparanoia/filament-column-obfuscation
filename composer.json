@@ -2,7 +2,7 @@
     "name": "randomparanoia/filament-column-obfuscation",
     "description": "This is my package filament-column-obfuscation",
     "keywords": [
-        "Luís Canadas",
+        "randomparanoia",
         "laravel",
         "filament-column-obfuscation"
     ],
@@ -16,7 +16,8 @@
         }
     ],
     "require": {
-        "php": "^8.4",
+        "php": "^8.1",
+        "filament/filament": "^3.2",
         "spatie/laravel-package-tools": "^1.16",
         "illuminate/contracts": "^10.0||^11.0||^12.0"
     },
@@ -34,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "rndparanoia\\FilamentColumnObfuscation\\": "src/",
-            "rndparanoia\\FilamentColumnObfuscation\\Database\\Factories\\": "database/factories/"
+            "RandomParanoia\\FilamentColumnObfuscation\\": "src/",
+            "RandomParanoia\\FilamentColumnObfuscation\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "rndparanoia\\FilamentColumnObfuscation\\Tests\\": "tests/",
+            "RandomParanoia\\FilamentColumnObfuscation\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -62,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "rndparanoia\\FilamentColumnObfuscation\\FilamentColumnObfuscationServiceProvider"
+                "RandomParanoia\\FilamentColumnObfuscation\\FilamentColumnObfuscationServiceProvider"
             ],
             "aliases": {
-                "FilamentColumnObfuscation": "rndparanoia\\FilamentColumnObfuscation\\Facades\\FilamentColumnObfuscation"
+                "FilamentColumnObfuscation": "RandomParanoia\\FilamentColumnObfuscation\\Facades\\FilamentColumnObfuscation"
             }
         }
     },

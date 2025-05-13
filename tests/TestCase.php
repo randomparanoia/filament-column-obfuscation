@@ -1,10 +1,10 @@
 <?php
 
-namespace rndparanoia\FilamentColumnObfuscation\Tests;
+namespace RandomParanoia\FilamentColumnObfuscation\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use rndparanoia\FilamentColumnObfuscation\FilamentColumnObfuscationServiceProvider;
+use RandomParanoia\FilamentColumnObfuscation\FilamentColumnObfuscationServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'rndparanoia\\FilamentColumnObfuscation\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'RandomParanoia\\FilamentColumnObfuscation\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
