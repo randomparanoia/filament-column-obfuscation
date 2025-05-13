@@ -17,22 +17,25 @@ class ObfuscatedColumn extends TextColumn
         return $this;
     }
 
-    public function getObfuscatedValue(string|null $state): string
+    public function getObfuscatedValue(?string $state): string
     {
-        if ($state === null) return '';
+        if ($state === null) {
+            return '';
+        }
 
         return match ($this->obfuscationPattern) {
-            'name' => substr($state, 0, 1) . str_repeat('*', strlen($state) - 1),
-            'phone' => substr($state, 0, 3) . str_repeat('*', strlen($state) - 6) . substr($state, -3),
+            'name' => substr($state, 0, 1).str_repeat('*', strlen($state) - 1),
+            'phone' => substr($state, 0, 3).str_repeat('*', strlen($state) - 6).substr($state, -3),
             'email' => (function (string $email) {
                 $parts = explode('@', $email);
                 $username = $parts[0];
                 $domain = $parts[1] ?? '';
-                return substr($username, 0, 2) . str_repeat('*', strlen($username) - 2) . '@' . $domain;
+
+                return substr($username, 0, 2).str_repeat('*', strlen($username) - 2).'@'.$domain;
             })($state),
-            'address' => substr($state, 0, 5) . str_repeat('*', strlen($state) - 5),
-            'locality' => substr($state, 0, 2) . str_repeat('*', strlen($state) - 2),
-            default => substr($state, 0, 1) . str_repeat('*', strlen($state) - 1),
+            'address' => substr($state, 0, 5).str_repeat('*', strlen($state) - 5),
+            'locality' => substr($state, 0, 2).str_repeat('*', strlen($state) - 2),
+            default => substr($state, 0, 1).str_repeat('*', strlen($state) - 1),
         };
     }
 }

@@ -2,7 +2,6 @@
 
 namespace RandomParanoia\FilamentColumnObfuscation;
 
-use rndparanoia\FilamentColumnObfuscation\Commands\FilamentColumnObfuscationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
