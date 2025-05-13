@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace rndparanoia\FilamentColumnObfuscation\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentColumnObfuscationCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-column-obfuscation';
 
     public $description = 'My command';
 

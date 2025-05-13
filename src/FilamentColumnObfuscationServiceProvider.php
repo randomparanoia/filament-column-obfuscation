@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace rndparanoia\FilamentColumnObfuscation;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use rndparanoia\FilamentColumnObfuscation\Commands\FilamentColumnObfuscationCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class FilamentColumnObfuscationServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('filament-column-obfuscation')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_migration_table_name_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_filament_column_obfuscation_table')
+            ->hasCommand(FilamentColumnObfuscationCommand::class);
     }
 }
