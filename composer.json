@@ -3,6 +3,7 @@
     "description": "A Filament plugin that allows you to easily obfuscate sensitive data in table columns.",
     "keywords": [
         "randomparanoia",
+        "filament",
         "laravel",
         "filament-column-obfuscation"
     ],
