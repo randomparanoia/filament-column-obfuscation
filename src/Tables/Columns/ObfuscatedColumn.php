@@ -6,6 +6,9 @@ use Filament\Tables\Columns\TextColumn;
 
 class ObfuscatedColumn extends TextColumn
 {
+    /**
+     * @var view-string
+     */
     protected string $view = 'randomparanoia-filament-column-obfuscation::tables.columns.obfuscated-column';
 
     protected string $obfuscationPattern = 'default';
@@ -16,7 +19,7 @@ class ObfuscatedColumn extends TextColumn
 
     protected string $obfuscationCharacter = '*';
 
-    protected bool $revealOnClick = true; // Default to true as your HTML already has click behavior
+    protected bool $revealOnClick = true;
 
     protected bool $revealOnHover = false;
 
