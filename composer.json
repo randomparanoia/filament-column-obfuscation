@@ -1,6 +1,6 @@
 {
     "name": "randomparanoia/filament-column-obfuscation",
-    "description": "This is my package filament-column-obfuscation",
+    "description": "A Filament plugin that allows you to easily obfuscate sensitive data in table columns.",
     "keywords": [
         "randomparanoia",
         "laravel",
