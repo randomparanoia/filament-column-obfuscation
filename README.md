@@ -10,10 +10,13 @@ A Filament plugin that allows you to easily obfuscate sensitive data in table co
 ## Features
 
 -   Mask sensitive data in Filament table columns (emails, phone numbers, addresses, etc.)
--   Customizable obfuscation patterns (show first/last X characters, use custom placeholders)
+-   Customizable obfuscation patterns (show first/last X characters, use custom characters)
 -   Toggle visibility with click/hover actions
--   Role-based permissions for viewing unobfuscated data
 -   Simple integration with existing Filament tables
+
+## Planned Features
+
+-   Role-based permissions for viewing unobfuscated data
 
 ## Example
 
@@ -35,7 +38,7 @@ public static function table(Table $table): Table
                 ->label('Phone Number')
                 ->showFirstChars(3)
                 ->showLastChars(2)
-                ->placeholder('*')
+                ->obfuscationCharacter('*')
                 ->revealOnClick(),
         ]);
 }
@@ -66,22 +69,39 @@ ObfuscatedColumn::make('email')
     ->label('Email Address');
 ```
 
+### Preset Obfuscation Patterns
+
+```php
+use RandomParanoia\FilamentColumnObfuscation\Columns\ObfuscatedColumn;
+
+ObfuscatedColumn::make('email')
+    ->obfuscationPattern('email')
+    ->label('Email Address');
+```
+
+-   `default` (default): Obfuscate all characters
+-   `name`: Show first letter and last letter of the name
+-   `phone`: Show first 3 digits, last 3 digits, and all digits in between
+-   `email`: Show first 2 letters, last 2 letters, and all letters in between
+-   `address`: Show first 5 letters and last 5 letters
+-   `locality`: Show first 2 letters and last 2 letters
+
 ### Customizing Obfuscation
 
 ```php
 ObfuscatedColumn::make('credit_card')
-    ->showFirstChars(4)     // Show first 4 characters
-    ->showLastChars(4)      // Show last 4 characters
-    ->placeholder('-')      // Use custom placeholder
-    ->revealOnClick()       // Allow revealing on click
-    ->revealOnHover()       // OR allow revealing on hover
+    ->showFirstChars(4)             // Show first 4 characters
+    ->showLastChars(4)              // Show last 4 characters
+    ->obfuscationCharacter('-')     // Use custom character
+    ->revealOnClick()               // Allow revealing on click
+    ->revealOnHover()               // OR allow revealing on hover
 ```
 
 ### Available Methods
 
 -   `showFirstChars(int $count)`: Show the first X characters
 -   `showLastChars(int $count)`: Show the last X characters
--   `placeholder(string $char)`: Set the placeholder character
+-   `obfuscationCharacter(string $char)`: Set the obfuscation character
 -   `revealOnClick(bool $revealable = true)`: Enable click-to-reveal functionality
 -   `revealOnHover(bool $revealable = true)`: Enable hover-to-reveal functionality
 

@@ -6,6 +6,9 @@ use Filament\Tables\Columns\TextColumn;
 
 class ObfuscatedColumn extends TextColumn
 {
+    /**
+     * @var view-string
+     */
     protected string $view = 'randomparanoia-filament-column-obfuscation::tables.columns.obfuscated-column';
 
     protected string $obfuscationPattern = 'default';
@@ -16,7 +19,7 @@ class ObfuscatedColumn extends TextColumn
 
     protected string $obfuscationCharacter = '*';
 
-    protected bool $revealOnClick = true; // Default to true as your HTML already has click behavior
+    protected bool $revealOnClick = true;
 
     protected bool $revealOnHover = false;
 
@@ -79,22 +82,22 @@ class ObfuscatedColumn extends TextColumn
             $middleLength = $length - $this->showFirstChars - $this->showLastChars;
             $middleChars = $middleLength > 0 ? str_repeat($this->obfuscationCharacter, $middleLength) : '';
 
-            return $firstChars.$middleChars.$lastChars;
+            return $firstChars . $middleChars . $lastChars;
         }
 
         // Using predefined patterns
         return match ($this->obfuscationPattern) {
-            'name' => mb_substr($state, 0, 1).str_repeat($this->obfuscationCharacter, mb_strlen($state) - 1),
-            'phone' => mb_substr($state, 0, 3).str_repeat($this->obfuscationCharacter, mb_strlen($state) - 6).mb_substr($state, -3),
+            'name' => mb_substr($state, 0, 1) . str_repeat($this->obfuscationCharacter, mb_strlen($state) - 1),
+            'phone' => mb_substr($state, 0, 3) . str_repeat($this->obfuscationCharacter, mb_strlen($state) - 6) . mb_substr($state, -3),
             'email' => (function (string $email) {
                 $parts = explode('@', $email);
                 $username = $parts[0];
                 $domain = $parts[1] ?? '';
 
-                return mb_substr($username, 0, 2).str_repeat($this->obfuscationCharacter, mb_strlen($username) - 2).'@'.$domain;
+                return mb_substr($username, 0, 2) . str_repeat($this->obfuscationCharacter, mb_strlen($username) - 2) . '@' . $domain;
             })($state),
-            'address' => mb_substr($state, 0, 5).str_repeat($this->obfuscationCharacter, mb_strlen($state) - 5),
-            'locality' => mb_substr($state, 0, 2).str_repeat($this->obfuscationCharacter, mb_strlen($state) - 2),
+            'address' => mb_substr($state, 0, 5) . str_repeat($this->obfuscationCharacter, mb_strlen($state) - 5),
+            'locality' => mb_substr($state, 0, 2) . str_repeat($this->obfuscationCharacter, mb_strlen($state) - 2),
             default => str_repeat($this->obfuscationCharacter, mb_strlen($state)),
         };
     }
