@@ -52,12 +52,6 @@ You can install the package via composer:
 composer require randomparanoia/filament-column-obfuscation
 ```
 
-Optionally, you can publish the views using:
-
-```bash
-php artisan vendor:publish --tag="filament-column-obfuscation-views"
-```
-
 ## Usage
 
 ### Basic Usage
